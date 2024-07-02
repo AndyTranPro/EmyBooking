@@ -1,0 +1,136 @@
+[
+  {
+    "No": 1,
+    "Staff_z_ID": "z17887",
+    "Staff_Name": "aooif",
+    "Test": "unsw.edu.au",
+    "Email_ID": "aooif@unsw.edu.au",
+    "Faculty_Name": "ENG",
+    "School_Name": "CSE",
+    "Title": "A/Prof",
+    "Role": "Academic"
+  },
+  {
+    "No": 2,
+    "Staff_z_ID": "z44293",
+    "Staff_Name": "hyhsy",
+    "Test": "unsw.edu.au",
+    "Email_ID": "hyhsy@unsw.edu.au",
+    "Faculty_Name": "ENG",
+    "School_Name": "CSE",
+    "Title": "Prof",
+    "Role": "Academic"
+  },
+  {
+    "No": 3,
+    "Staff_z_ID": "z54322",
+    "Staff_Name": "tjfxr",
+    "Test": "unsw.edu.au",
+    "Email_ID": "tjfxr@unsw.edu.au",
+    "Faculty_Name": "ENG",
+    "School_Name": "CSE",
+    "Title": "Mr",
+    "Role": "Professional"
+  },
+  {
+    "No": 4,
+    "Staff_z_ID": "z54437",
+    "Staff_Name": "tzoyy",
+    "Test": "unsw.edu.au",
+    "Email_ID": "tzoyy@unsw.edu.au",
+    "Faculty_Name": "ENG",
+    "School_Name": "CSE",
+    "Title": "Ms",
+    "Role": "Professional"
+  },
+  {
+    "No": 5,
+    "Staff_z_ID": "z47478",
+    "Staff_Name": "kjkkx",
+    "Test": "unsw.edu.au",
+    "Email_ID": "kjkkx@unsw.edu.au",
+    "Faculty_Name": "ENG",
+    "School_Name": "CSE",
+    "Title": "Prof",
+    "Role": "Academic"
+  },
+  {
+    "No": 6,
+    "Staff_z_ID": "z97732",
+    "Staff_Name": "trgje",
+    "Test": "unsw.edu.au",
+    "Email_ID": "trgje@unsw.edu.au",
+    "Faculty_Name": "ENG",
+    "School_Name": "CSE",
+    "Title": "Dr",
+    "Role": "Academic"
+  },
+  {
+    "No": 7,
+    "Staff_z_ID": "z55294",
+    "Staff_Name": "mzzpu",
+    "Test": "unsw.edu.au",
+    "Email_ID": "mzzpu@unsw.edu.au",
+    "Faculty_Name": "ENG",
+    "School_Name": "CSE",
+    "Title": "Ms",
+    "Role": "Professional"
+  },
+  {
+    "No": 8,
+    "Staff_z_ID": "z40039",
+    "Staff_Name": "ytsce",
+    "Test": "unsw.edu.au",
+    "Email_ID": "ytsce@unsw.edu.au",
+    "Faculty_Name": "ENG",
+    "School_Name": "CSE",
+    "Title": "Prof",
+    "Role": "Academic"
+  },
+  {
+    "No": 9,
+    "Staff_z_ID": "z19077",
+    "Staff_Name": "jluty",
+    "Test": "unsw.edu.au",
+    "Email_ID": "jluty@unsw.edu.au",
+    "Faculty_Name": "ENG",
+    "School_Name": "CSE",
+    "Title": "Ms",
+    "Role": "NA"
+  },
+  {
+    "No": 10,
+    "Staff_z_ID": "z96765",
+    "Staff_Name": "jfvyy",
+    "Test": "unsw.edu.au",
+    "Email_ID": "jfvyy@unsw.edu.au",
+    "Faculty_Name": "ENG",
+    "School_Name": "CSE",
+    "Title": "Mr",
+    "Role": "NA"
+  },
+  {
+    "No": 46,
+    "Staff_z_ID": "z65338",
+    "Staff_Name": "gftyu",
+    "Test": "unsw.edu.au",
+    "Email_ID": "gftyu@unsw.edu.au",
+    "Faculty_Name": "ENG",
+    "School_Name": "Electrical",
+    "Title": "Prof",
+    "Role": "Academic",
+    "": ""
+  },
+  {
+    "No": 60,
+    "Staff_z_ID": "z57459",
+    "Staff_Name": "ddbgfyb",
+    "Test": "unsw.edu.au",
+    "Email_ID": "ddbgfyb@unsw.edu.au",
+    "Faculty_Name": "ENG",
+    "School_Name": "Mech",
+    "Title": "A/Prof",
+    "Role": "Academic",
+    "": ""
+  }
+]

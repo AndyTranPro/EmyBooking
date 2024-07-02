@@ -1,0 +1,360 @@
+openapi: 3.0.0
+info:
+  title: comp3900_project
+  contact: {}
+  version: "1.0"
+servers:
+  - url: http://localhost:3000
+    variables: {}
+paths:
+  /auth/logout:
+    get:
+      tags:
+        - Auth
+      summary: logout
+      operationId: logout
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /auth/login:
+    post:
+      tags:
+        - Auth
+      summary: login
+      operationId: login
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/loginrequest"
+                - example:
+                    email: m.arsalah003@gmail.com
+            example:
+              email: m.arsalah003@gmail.com
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security: []
+  /users:
+    get:
+      tags:
+        - User
+      summary: Get All Users
+      operationId: GetAllUsers
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /users/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    get:
+      tags:
+        - User
+      summary: Get Single User
+      operationId: GetSingleUser
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /users/showMe:
+    get:
+      tags:
+        - User
+      summary: Show Current User
+      operationId: ShowCurrentUser
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /rooms:
+    get:
+      tags:
+        - Room
+      summary: Get All Rooms
+      operationId: GetAllRooms
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    post:
+      tags:
+        - Room
+      summary: Create Room
+      operationId: CreateRoom
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /rooms/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The room ID
+    get:
+      tags:
+        - Room
+      summary: Get Single Room
+      operationId: GetSingleRoom
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    patch:
+      tags:
+        - Room
+      summary: Update Room
+      operationId: UpdateRoom
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    delete:
+      tags:
+        - Room
+      summary: Delete Room
+      operationId: DeleteRoom
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /bookings:
+    get:
+      tags:
+        - Booking
+      summary: Get All Bookings
+      operationId: GetAllBookings
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    post:
+      tags:
+        - Booking
+      summary: Create Booking
+      operationId: CreateBooking
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/CreateBookingRequest"
+                - example:
+                    room: 66783deb77dfc185f1e9bd7e
+                    start: 2024-08-24T21:40:00.373Z
+                    duration: "1"
+                    description: a meeting of minds
+            example:
+              room: 66783deb77dfc185f1e9bd7e
+              start: 2024-08-24T21:40:00.373Z
+              duration: "1"
+              description: a meeting of minds
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /bookings/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The booking ID
+    get:
+      tags:
+        - Booking
+      summary: Get Single Booking
+      operationId: GetSingleBooking
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    delete:
+      tags:
+        - Booking
+      summary: Delete Booking
+      operationId: DeleteBooking
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /bookings/showAllMyBookings:
+    get:
+      tags:
+        - Booking
+      summary: get current users bookings
+      operationId: getcurrentusersbookings
+      parameters:
+        - name: start
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: 2021-08-25T11:34:21.373Z
+        - name: end
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: 2029-08-25T12:34:21.373Z
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /bookings/sendEmail:
+    post:
+      tags:
+        - Booking
+      summary: send email
+      operationId: sendemail
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/sendemailrequest"
+                - example:
+                    booking: 6679565641fe80128fcf60bd
+                    isConfirmation: "true"
+            example:
+              booking: 6679565641fe80128fcf60bd
+              isConfirmation: "true"
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+components:
+  schemas:
+    loginrequest:
+      title: loginrequest
+      required:
+        - email
+      type: object
+      properties:
+        email:
+          type: string
+      example:
+        email: m.arsalah003@gmail.com
+    sendemailrequest:
+      title: sendemailrequest
+      required:
+        - booking
+        - isConfirmation
+      type: object
+      properties:
+        booking:
+          type: string
+        isConfirmation:
+          type: string
+      example:
+        booking: 6679565641fe80128fcf60bd
+        isConfirmation: "true"
+    CreateBookingRequest:
+      title: CreateBookingRequest
+      required:
+        - room
+        - start
+        - duration
+        - description
+      type: object
+      properties:
+        room:
+          type: string
+        start:
+          type: string
+        duration:
+          type: string
+        description:
+          type: string
+      example:
+        room: 66783deb77dfc185f1e9bd7e
+        start: 2024-08-24T21:40:00.373Z
+        duration: "1"
+        description: a meeting of minds
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security: []
+tags:
+  - name: Auth
+  - name: User
+  - name: Room
+  - name: Booking

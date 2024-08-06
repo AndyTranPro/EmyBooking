@@ -33,6 +33,7 @@ const bookingSchema = new Schema<
   },
   duration: {
     type: Number,
+    required: true,
     min: 1,
     max: 8,
   },
@@ -50,6 +51,10 @@ const bookingSchema = new Schema<
   isCheckedIn: {
     type: Boolean,
     default: false,
+  },
+  isApproved: {
+    type: Boolean,
+    default: null,
   },
 });
 // bookingSchema.virtual("end").get(function () {

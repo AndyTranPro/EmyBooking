@@ -1,1 +1,12 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=15171562&assignment_repo_type=AssignmentRepo)
+# Setup:
+
+Assuming docker is installed and running:
+
+1. Add the appropriate .env files as specified in Final Project Report
+2. Run `docker-compose up` in the root directory.
+3. Open `localhost:5000` in your web browswer of choice.
+
+
+# Tutorial:
+
+[View the tutorial page here](https://htmlpreview.github.io/?https://github.com/unsw-cse-comp99-3900-24t1/capstone-project-3900h18astarguardians/blob/tutorial/tutorial.html)

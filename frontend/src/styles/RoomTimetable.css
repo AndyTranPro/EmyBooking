@@ -1,6 +1,5 @@
 .scrollable-scheduler {
-  height: 100%;
-  width: 100%;
+  flex-grow: 1;
 }
 
 /* 'day' element below the 'name' in the room column */
@@ -31,4 +30,97 @@
 .MuiListItem-root.MuiListItem-gutters.MuiListItem-padding.css-1sfpplk-MuiListItem-root {
   display: grid;
   justify-content: center;
+  border-top: none;
+  padding-bottom: 15px;
+}
+
+.scheduler-container {
+  display: flex;
+  align-items: flex-start;
+  width: 95%;
+  justify-content: space-between;
+}
+
+
+.filter-btn-container {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #1976d2;
+  border-radius: 10px;
+  color: #1976d2;
+}
+
+.filter-button {
+  transition: transform 0.35s ease;
+}
+
+.filter-button:hover {
+  transform: scale(1.35);
+}
+
+.scheduler-button:hover {
+  transform: scale(1.35); /* Makes the button bigger */
+  animation: colorChange 2s infinite;
+}
+
+.lds-facebook,
+.lds-facebook div {
+  box-sizing: border-box;
+}
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  color: rgb(238, 238, 238);
+}
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: currentColor;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0s;
+}
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%, 100% {
+    top: 24px;
+    height: 32px;
+  }
+}
+
+@keyframes colorChange {
+  0% { background-color: white; }
+  50% { background-color: lightgrey; }
+  100% { background-color: white; }
+}
+/* Add this to your CSS file or a <style> tag in your component */
+@keyframes enlargeShrink {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5); /* adjust the scale as needed */
+  }
+}
+
+.enlarge-shrink {
+  display: inline-block; /* ensures the element can transform */
+  animation: enlargeShrink 1s ease-in-out infinite; /* 1s duration and infinite loop */
 }

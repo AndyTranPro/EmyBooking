@@ -70,16 +70,17 @@ app.use(notFound);
 app.use(errorHandlerMiddleware);
 
 const port = PORT || 3000;
-
+export default app;
 // start up server and MongoDB connection
-(async () => {
-  try {
-    await connectDB(MONGO_URI as string);
-    console.log(`db is up and running...`);
-    app.listen(port, () =>
-      console.log(`Server is up and running on port ${port}...`)
-    );
-  } catch (error) {
-    console.log(error);
-  }
-})();
+if (process.env.NODE_ENV !== "test")
+  (async () => {
+    try {
+      await connectDB(MONGO_URI as string);
+      console.log(`db is up and running...`);
+      app.listen(port, () =>
+        console.log(`Server is up and running on port ${port}...`)
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  })();

@@ -1,17 +1,21 @@
 /* eslint-disable space-before-function-paren */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MyGlobalContext } from "./utils/context";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-
+import './global.css';
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
-import Recovery from "./pages/Recovery";
-import OTPInput from "./pages/OTPInput";
-import Reset from "./pages/Reset";
+import Contact from "./pages/Contact";
+import Requests from "./pages/Requests";
+
 
 import { useSnackbar } from "notistack";
 import ResponsiveAppBar from "./components/ResponsiveAppBar";
+import MyBookings from "./pages/MyBookings";
+import Reports from "./pages/Reports";
+import { IsCheckInReady } from "./utils/IsCheckInReady";
+import { FetchNumRequests } from "./utils/getNumRequests";
 
 export type tokenUserI = {
   type: "cse_staff" | "non_cse_staff" | "hdr_student" | "admin";
@@ -22,6 +26,9 @@ export type tokenUserI = {
 } | null;
 
 const App = () => {
+  const [numCheckIns, setNumCheckIns] = useState(0);
+  const [numRequests, setNumRequests] = useState(0);
+
   const { enqueueSnackbar } = useSnackbar();
   const [token, setToken] = useState<tokenUserI>(
     localStorage.getItem("token") && JSON.parse(localStorage.getItem("token")!)
@@ -32,9 +39,16 @@ const App = () => {
   const [email, setEmail] = useState(
     localStorage.getItem("email") && JSON.parse(localStorage.getItem("email")!)
   );
+  const [admin, setAdmin] = useState(
+    localStorage.getItem("admin") && JSON.parse(localStorage.getItem("admin")!)
+  );
 
-  const displayError = (msg: string) =>
-    enqueueSnackbar(msg, { variant: "error" });
+  const displayError = (msg: string) => {
+    if (msg) {
+      enqueueSnackbar(msg, { variant: "error" });
+    }
+  }
+
 
   const displaySuccess = (msg: string) =>
     enqueueSnackbar(msg, { variant: "success" });
@@ -72,6 +86,27 @@ const App = () => {
     localStorage.removeItem("email");
   };
 
+  const handleAdmin = () => {
+    setAdmin(true);
+    localStorage.setItem("admin", JSON.stringify(true));
+  };
+  const removeAdmin = () => {
+    setAdmin(false);
+    localStorage.setItem("admin", JSON.stringify(false));
+  }
+
+
+  useEffect(() => {
+    IsCheckInReady().then((num) => {
+      setNumCheckIns(num);
+    });
+
+    FetchNumRequests().then((num) => {
+      setNumRequests(num);
+    });
+  })
+
+
   const globalVars = {
     displayError,
     displaySuccess,
@@ -86,22 +121,27 @@ const App = () => {
     handleEmail,
     removeEmail,
     email,
+    handleAdmin,
+    removeAdmin,
+    admin,
   };
+
 
   return (
     <>
       <BrowserRouter>
         <MyGlobalContext.Provider value={globalVars}>
-          <ResponsiveAppBar />
+          <ResponsiveAppBar numCheckIns={numCheckIns} numRequests={numRequests} />
           <Routes>
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="register" element={<Register />} />
             <Route path="/" element={<Navigate to="/login" replace={true} />} />
             <Route path="login" element={<Login />} />
-            <Route path="recovery" element={<Recovery />} />
-            <Route path="OTP" element={<OTPInput />} />
-            <Route path="reset-password" element={<Reset />} />
+            <Route path="myBookings" element={<MyBookings setNumCheckIns={setNumCheckIns}/>} />
+            <Route path="reports" element={<Reports />} />
             <Route path="*" element={<h1> Page Not Found</h1>} />
+            <Route path="contact" element={<Contact />}/>
+            <Route path="requests" element={<Requests setNumRequests={setNumRequests}/>} />
           </Routes>
         </MyGlobalContext.Provider>
       </BrowserRouter>

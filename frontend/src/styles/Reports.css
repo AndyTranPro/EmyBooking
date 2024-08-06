@@ -1,0 +1,9 @@
+/* MyComponent.module.css */
+.robotoFont {
+    font-family: 'Roboto', sans-serif;
+}
+
+.page {
+    margin: 10px;
+    width: 90%;
+}

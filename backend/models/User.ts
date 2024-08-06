@@ -1,5 +1,7 @@
 import { Schema, model } from "mongoose";
 import { Model } from "mongoose";
+import { compare, genSalt, hash } from "bcryptjs";
+
 import { isEmail } from "validator";
 import type { mongooseUserI, mongooseUserMethodsI } from "../types";
 
@@ -43,26 +45,40 @@ const userSchema = new Schema<mongooseUserI, UserModel, mongooseUserMethodsI>({
     type: String,
   },
 
-  // password: {
-  //   type: String,
-  //   required: [true, "password must be provided"],
-  //   minlength: [5, "password must be longer than 5 characters"],
-  //   maxlength: [70, "password must be shorter than 70 characters"],
-  // },
+  password: {
+    type: String,
+    minlength: [5, "password must be longer than 5 characters"],
+    maxlength: [70, "password must be shorter than 70 characters"],
+  },
   type: {
     type: String,
     enum: ["cse_staff", "non_cse_staff", "hdr_student", "admin"],
     required: true,
   },
+  hasConfirmationEmail: {
+    type: Boolean,
+    default: true,
+  },
+  hasNotificationEmail: {
+    type: Boolean,
+    default: true,
+  },
+  verificationToken: {
+    type: String,
+  },
+  isVerified: {
+    type: Boolean,
+    default: false,
+  },
 });
-// userSchema.methods.comparePassword = function (candidatePassword: string) {
-//   return compare(candidatePassword, this.password);
-// };
+userSchema.methods.comparePassword = function (candidatePassword: string) {
+  return compare(candidatePassword, this.password);
+};
 
-// userSchema.pre("save", async function () {
-//   if (!this.isModified("password")) return;
-//   const salt = await genSalt(10);
-//   this.password = await hash(this.password, salt);
-// });
+userSchema.pre("save", async function () {
+  if (!this.isModified("password")) return;
+  const salt = await genSalt(10);
+  this.password = await hash(this.password, salt);
+});
 
 export const User = model<mongooseUserI, UserModel>("User", userSchema);

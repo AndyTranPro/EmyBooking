@@ -1,3 +1,10 @@
+/**
+ * Login Component
+ * 
+ * This component provides the login form for users to authenticate and access the application. It handles form submission,
+ * user authentication, and navigates to the dashboard upon successful login.
+ */
+
 import { FormEvent, useEffect } from "react";
 import { useGlobalContext } from "../utils/context";
 import { request } from "../utils/axios";
@@ -13,7 +20,7 @@ import Container from "@mui/material/Container";
 import { useNavigate, Link } from "react-router-dom";
 import { AxiosError } from "axios";
 const Login = () => {
-  const { displayError, displaySuccess, handleToken, token } =
+  const { displayError, displaySuccess, handleToken, handleEmail, handleAdmin, removeAdmin } =
     useGlobalContext();
 
   const navigate = useNavigate();
@@ -23,7 +30,6 @@ const Login = () => {
       displaySuccess("Logged In");
       navigate("/dashboard");
     } catch (e) {
-      console.log(e);
     }
   };
   useEffect(() => {
@@ -42,6 +48,13 @@ const Login = () => {
         password: data.get("password"),
       });
       handleToken(user);
+      //@ts-ignore
+      handleEmail(data.get("email"));
+      if (user.type == "admin") {
+        handleAdmin();
+      } else {
+        removeAdmin();
+      }
       displaySuccess("Logged In");
       navigate("/dashboard");
     } catch (err) {
@@ -80,8 +93,20 @@ const Login = () => {
                 autoComplete="email"
               />
             </Grid>
+            <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="password"
+                  label="Your Password"
+                  type="password"
+                  id="password"
+                  autoComplete="password"
+                />
+              </Grid>
           </Grid>
           <Button
+            data-testid="loginBtn"
             type="submit"
             fullWidth
             variant="contained"
@@ -90,10 +115,9 @@ const Login = () => {
             Login
           </Button>
           <Grid container justifyContent="space-between">
-            {/* Forgot password section if ever we need it
             <Grid item>
-              <Link to="/recovery">Forgot password?</Link>
-            </Grid> */}
+              <Link to="/register">Don't have an account? Register</Link>
+            </Grid>
           </Grid>
         </Box>
       </Box>

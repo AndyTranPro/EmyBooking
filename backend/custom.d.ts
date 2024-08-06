@@ -6,6 +6,8 @@ declare namespace Express {
       email: string;
       name: string;
       userId: string;
+      hasConfirmationEmail: boolean;
+      hasNotificationEmail: boolean;
     };
   }
 }

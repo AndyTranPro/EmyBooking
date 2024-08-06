@@ -52,15 +52,12 @@ const updateUserPassword = async (
 };
 
 const updateUser = async (
-  { body: { name, email }, user: { zid } }: Request,
+  { body, user: { userId } }: Request,
   res: Response
 ) => {
-  if (!name || !email)
-    throw new BadRequestError("both a new name and email must be provided");
-
   const updatedUser = (await User.findOneAndUpdate(
-    { _id: zid },
-    { name, email },
+    { _id: userId },
+    { ...body },
     {
       new: true,
       runValidators: true,
@@ -70,7 +67,7 @@ const updateUser = async (
 
   attachCookiesToResponse(res, tokenUser);
 
-  res.status(StatusCodes.OK).json({ user: tokenUser });
+  res.status(StatusCodes.OK).json({ updatedUser });
 };
 
 export {

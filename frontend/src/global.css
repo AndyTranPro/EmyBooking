@@ -1,0 +1,25 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Webkit browsers (Chrome, Safari) */
+html::-webkit-scrollbar {
+    width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+    border: 1px solid #f1f1f1;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

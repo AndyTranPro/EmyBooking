@@ -14,6 +14,9 @@ export type GlobalContent = {
   handleEmail: (email: string) => void;
   removeEmail: () => void;
   email: string;
+  handleAdmin: () => void;
+  removeAdmin: () => void;
+  admin: boolean;
 };
 export const MyGlobalContext = createContext<GlobalContent>({
   displayError: () => {},
@@ -29,5 +32,8 @@ export const MyGlobalContext = createContext<GlobalContent>({
   handleEmail: () => {},
   removeEmail: () => {},
   email: "",
+  handleAdmin: () => {},
+  removeAdmin: () => {},
+  admin: false,
 });
 export const useGlobalContext = () => useContext(MyGlobalContext);

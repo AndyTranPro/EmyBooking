@@ -1,102 +1,687 @@
 [
-  { "type": "staff room", "size": 43, "name": "BZ-TOL", "level": 1 },
-  { "type": "staff room", "size": 67, "name": "VE-F", "level": 4 },
-  { "type": "normal", "size": 48, "name": "CA-SK", "level": 4 },
-  { "type": "meeting room", "size": 69, "name": "TL-DI", "level": 1 },
-  { "type": "meeting room", "size": 33, "name": "ID-MA", "level": 3 },
-  { "type": "normal", "size": 47, "name": "US-IN", "level": 4 },
-  { "type": "hot desk", "size": 84, "name": "US-PA", "level": 5 },
-  { "type": "meeting room", "size": 54, "name": "CL-AR", "level": 3 },
-  { "type": "hot desk", "size": 85, "name": "PF-U-A", "level": 4 },
-  { "type": "meeting room", "size": 49, "name": "US-MN", "level": 2 },
-  { "type": "meeting room", "size": 46, "name": "US-AK", "level": 2 },
-  { "type": "normal", "size": 56, "name": "AU-NT", "level": 5 },
-  { "type": "staff room", "size": 35, "name": "US-CA", "level": 2 },
-  { "type": "staff room", "size": 38, "name": "US-IA", "level": 5 },
-  { "type": "staff room", "size": 41, "name": "CN-65", "level": 5 },
-  { "type": "staff room", "size": 43, "name": "MH-ALL", "level": 2 },
-  { "type": "meeting room", "size": 59, "name": "US-MI", "level": 2 },
-  { "type": "normal", "size": 22, "name": "US-IL", "level": 2 },
-  { "type": "meeting room", "size": 42, "name": "ID-JB", "level": 2 },
-  { "type": "normal", "size": 87, "name": "MA-BEM", "level": 2 },
-  { "type": "hot desk", "size": 80, "name": "CA-NU", "level": 1 },
-  { "type": "staff room", "size": 22, "name": "PT-18", "level": 3 },
-  { "type": "meeting room", "size": 64, "name": "MZ-P", "level": 4 },
-  { "type": "meeting room", "size": 87, "name": "US-IA", "level": 5 },
-  { "type": "hot desk", "size": 28, "name": "AU-NT", "level": 2 },
-  { "type": "hot desk", "size": 77, "name": "ZA-NL", "level": 5 },
-  { "type": "meeting room", "size": 22, "name": "AU-SA", "level": 3 },
-  { "type": "hot desk", "size": 48, "name": "US-AR", "level": 1 },
-  { "type": "normal", "size": 54, "name": "US-MD", "level": 5 },
-  { "type": "hot desk", "size": 77, "name": "VE-F", "level": 5 },
-  { "type": "staff room", "size": 84, "name": "PG-MBA", "level": 1 },
-  { "type": "staff room", "size": 55, "name": "MY-12", "level": 3 },
-  { "type": "hot desk", "size": 68, "name": "US-KS", "level": 4 },
-  { "type": "staff room", "size": 56, "name": "SD-03", "level": 1 },
-  { "type": "normal", "size": 18, "name": "US-AK", "level": 1 },
-  { "type": "hot desk", "size": 81, "name": "SR-SI", "level": 1 },
-  { "type": "meeting room", "size": 18, "name": "IN-JH", "level": 3 },
-  { "type": "normal", "size": 29, "name": "SA-12", "level": 2 },
-  { "type": "hot desk", "size": 84, "name": "PG-CPM", "level": 2 },
-  { "type": "hot desk", "size": 44, "name": "KE-500", "level": 4 },
-  { "type": "staff room", "size": 26, "name": "BR-MG", "level": 3 },
-  { "type": "staff room", "size": 43, "name": "CA-YT", "level": 5 },
-  { "type": "hot desk", "size": 51, "name": "BW-NW", "level": 3 },
-  { "type": "meeting room", "size": 79, "name": "CO-CUN", "level": 2 },
-  { "type": "hot desk", "size": 76, "name": "TZ-17", "level": 1 },
-  { "type": "meeting room", "size": 27, "name": "US-NM", "level": 2 },
-  { "type": "normal", "size": 75, "name": "ET-OR", "level": 4 },
-  { "type": "normal", "size": 49, "name": "ZA-EC", "level": 5 },
-  { "type": "hot desk", "size": 81, "name": "US-MN", "level": 3 },
-  { "type": "normal", "size": 63, "name": "UA-74", "level": 5 },
-  { "type": "hot desk", "size": 41, "name": "US-KS", "level": 1 },
-  { "type": "normal", "size": 44, "name": "PK-BA", "level": 2 },
-  { "type": "meeting room", "size": 73, "name": "GQ-BN", "level": 3 },
-  { "type": "staff room", "size": 42, "name": "TR-73", "level": 3 },
-  { "type": "normal", "size": 50, "name": "BR-RN", "level": 4 },
-  { "type": "meeting room", "size": 27, "name": "FR-S", "level": 3 },
-  { "type": "hot desk", "size": 50, "name": "US-CO", "level": 3 },
-  { "type": "normal", "size": 88, "name": "BR-MG", "level": 1 },
-  { "type": "staff room", "size": 61, "name": "MX-ROO", "level": 5 },
-  { "type": "hot desk", "size": 50, "name": "ES-S", "level": 5 },
-  { "type": "staff room", "size": 49, "name": "AO-CCU", "level": 2 },
-  { "type": "staff room", "size": 31, "name": "US-AK", "level": 5 },
-  { "type": "meeting room", "size": 63, "name": "CO-NSA", "level": 4 },
-  { "type": "hot desk", "size": 42, "name": "ZA-WC", "level": 1 },
-  { "type": "meeting room", "size": 40, "name": "AU-VIC", "level": 3 },
-  { "type": "normal", "size": 70, "name": "US-NV", "level": 2 },
-  { "type": "meeting room", "size": 18, "name": "ID-KS", "level": 1 },
-  { "type": "staff room", "size": 60, "name": "MX-BCS", "level": 1 },
-  { "type": "hot desk", "size": 69, "name": "CN-44", "level": 4 },
-  { "type": "hot desk", "size": 72, "name": "US-OK", "level": 2 },
-  { "type": "normal", "size": 57, "name": "LK-3", "level": 1 },
-  { "type": "hot desk", "size": 56, "name": "BF-OUD", "level": 2 },
-  { "type": "hot desk", "size": 63, "name": "CA-NU", "level": 1 },
-  { "type": "meeting room", "size": 53, "name": "MX-VER", "level": 1 },
-  { "type": "hot desk", "size": 82, "name": "US-CO", "level": 1 },
-  { "type": "meeting room", "size": 23, "name": "CI-09", "level": 1 },
-  { "type": "staff room", "size": 72, "name": "US-AK", "level": 3 },
-  { "type": "normal", "size": 79, "name": "CF-MB", "level": 2 },
-  { "type": "hot desk", "size": 85, "name": "MX-BCS", "level": 5 },
-  { "type": "hot desk", "size": 84, "name": "IN-MM", "level": 5 },
-  { "type": "meeting room", "size": 31, "name": "AR-L", "level": 2 },
-  { "type": "hot desk", "size": 78, "name": "IT-25", "level": 4 },
-  { "type": "staff room", "size": 71, "name": "US-OH", "level": 3 },
-  { "type": "meeting room", "size": 33, "name": "RU-PRI", "level": 4 },
-  { "type": "meeting room", "size": 69, "name": "SD-24", "level": 4 },
-  { "type": "normal", "size": 37, "name": "SR-SI", "level": 4 },
-  { "type": "hot desk", "size": 64, "name": "TR-16", "level": 5 },
-  { "type": "normal", "size": 69, "name": "GY-BA", "level": 5 },
-  { "type": "staff room", "size": 37, "name": "VE-F", "level": 3 },
-  { "type": "hot desk", "size": 56, "name": "BW-SO", "level": 2 },
-  { "type": "normal", "size": 32, "name": "AU-NT", "level": 1 },
-  { "type": "staff room", "size": 59, "name": "IN-MP", "level": 2 },
-  { "type": "hot desk", "size": 77, "name": "IR-10", "level": 5 },
-  { "type": "normal", "size": 60, "name": "EG-MT", "level": 4 },
-  { "type": "meeting room", "size": 38, "name": "SD-04", "level": 1 },
-  { "type": "hot desk", "size": 38, "name": "US-WI", "level": 3 },
-  { "type": "hot desk", "size": 52, "name": "TJ-KT", "level": 2 },
-  { "type": "staff room", "size": 36, "name": "ID-JB", "level": 1 },
-  { "type": "staff room", "size": 76, "name": "BR-PR", "level": 3 },
-  { "type": "normal", "size": 89, "name": "IN-CT", "level": 2 }
+  {
+    "type": "hot desk",
+    "size": 1,
+    "name": "h1-L2",
+    "level": 2
+  },
+  {
+    "type": "hot desk",
+    "size": 3,
+    "name": "h2-L2",
+    "level": 2
+  },
+  {
+    "type": "hot desk",
+    "size": 2,
+    "name": "h3-L2",
+    "level": 2
+  },
+  {
+    "type": "hot desk",
+    "size": 3,
+    "name": "h4-L2",
+    "level": 2
+  },
+  {
+    "type": "hot desk",
+    "size": 1,
+    "name": "h5-L2",
+    "level": 2
+  },
+  {
+    "type": "hot desk",
+    "size": 3,
+    "name": "h6-L2",
+    "level": 2
+  },
+  {
+    "type": "hot desk",
+    "size": 3,
+    "name": "h7-L2",
+    "level": 2
+  },
+  {
+    "type": "hot desk",
+    "size": 3,
+    "name": "h8-L2",
+    "level": 2
+  },
+  {
+    "type": "hot desk",
+    "size": 3,
+    "name": "h9-L2",
+    "level": 2
+  },
+  {
+    "type": "hot desk",
+    "size": 1,
+    "name": "h10-L2",
+    "level": 2
+  },
+  {
+    "type": "hot desk",
+    "size": 3,
+    "name": "h11-L2",
+    "level": 2
+  },
+  {
+    "type": "hot desk",
+    "size": 2,
+    "name": "h12-L2",
+    "level": 2
+  },
+  {
+    "type": "hot desk",
+    "size": 1,
+    "name": "h13-L2",
+    "level": 2
+  },
+  {
+    "type": "hot desk",
+    "size": 2,
+    "name": "h14-L2",
+    "level": 2
+  },
+  {
+    "type": "hot desk",
+    "size": 3,
+    "name": "h15-L2",
+    "level": 2
+  },
+  {
+    "type": "hot desk",
+    "size": 3,
+    "name": "h16-L2",
+    "level": 2
+  },
+  {
+    "type": "hot desk",
+    "size": 3,
+    "name": "h17-L2",
+    "level": 2
+  },
+  {
+    "type": "hot desk",
+    "size": 2,
+    "name": "h18-L2",
+    "level": 2
+  },
+  {
+    "type": "hot desk",
+    "size": 1,
+    "name": "h19-L2",
+    "level": 2
+  },
+  {
+    "type": "meeting room",
+    "size": 20,
+    "name": "r201A",
+    "level": 2
+  },
+  {
+    "type": "meeting room",
+    "size": 12,
+    "name": "r202",
+    "level": 2
+  },
+  {
+    "type": "staff room",
+    "size": 43,
+    "name": "r203",
+    "level": 2
+  },
+  {
+    "type": "staff room",
+    "size": 39,
+    "name": "r204",
+    "level": 2
+  },
+  {
+    "type": "hot desk",
+    "size": 1,
+    "name": "h1-L3",
+    "level": 3
+  },
+  {
+    "type": "hot desk",
+    "size": 3,
+    "name": "h2-L3",
+    "level": 3
+  },
+  {
+    "type": "hot desk",
+    "size": 1,
+    "name": "h3-L3",
+    "level": 3
+  },
+  {
+    "type": "hot desk",
+    "size": 3,
+    "name": "h4-L3",
+    "level": 3
+  },
+  {
+    "type": "hot desk",
+    "size": 2,
+    "name": "h5-L3",
+    "level": 3
+  },
+  {
+    "type": "hot desk",
+    "size": 2,
+    "name": "h6-L3",
+    "level": 3
+  },
+  {
+    "type": "hot desk",
+    "size": 3,
+    "name": "h7-L3",
+    "level": 3
+  },
+  {
+    "type": "hot desk",
+    "size": 1,
+    "name": "h8-L3",
+    "level": 3
+  },
+  {
+    "type": "hot desk",
+    "size": 2,
+    "name": "h9-L3",
+    "level": 3
+  },
+  {
+    "type": "hot desk",
+    "size": 3,
+    "name": "h10-L3",
+    "level": 3
+  },
+  {
+    "type": "staff room",
+    "size": 43,
+    "name": "r301A",
+    "level": 3
+  },
+  {
+    "type": "staff room",
+    "size": 18,
+    "name": "r301B",
+    "level": 3
+  },
+  {
+    "type": "staff room",
+    "size": 16,
+    "name": "r301C",
+    "level": 3
+  },
+  {
+    "type": "staff room",
+    "size": 39,
+    "name": "r304",
+    "level": 3
+  },
+  {
+    "type": "meeting room",
+    "size": 21,
+    "name": "r303",
+    "level": 3
+  },
+  {
+    "type": "staff room",
+    "size": 12,
+    "name": "r306",
+    "level": 3
+  },
+  {
+    "type": "meeting room",
+    "size": 26,
+    "name": "r307",
+    "level": 3
+  },
+  {
+    "type": "staff room",
+    "size": 28,
+    "name": "r308",
+    "level": 3
+  },
+  {
+    "type": "staff room",
+    "size": 10,
+    "name": "r312",
+    "level": 3
+  },
+  {
+    "type": "staff room",
+    "size": 38,
+    "name": "r311",
+    "level": 3
+  },
+  {
+    "type": "staff room",
+    "size": 46,
+    "name": "r310",
+    "level": 3
+  },
+
+  {
+    "type": "meeting room",
+    "size": 12,
+    "name": "r301D",
+    "level": 3
+  },
+  {
+    "type": "meeting room",
+    "size": 37,
+    "name": "r301E",
+    "level": 3
+  },
+  {
+    "type": "staff room",
+    "size": 12,
+    "name": "r301F",
+    "level": 3
+  },
+  {
+    "type": "staff room",
+    "size": 36,
+    "name": "r301G",
+    "level": 3
+  },
+  {
+    "type": "meeting room",
+    "size": 36,
+    "name": "r301J",
+    "level": 3
+  },
+  {
+    "type": "staff room",
+    "size": 39,
+    "name": "r301H",
+    "level": 3
+  },
+  {
+    "type": "staff room",
+    "size": 47,
+    "name": "r313",
+    "level": 3
+  },
+  {
+    "type": "hot desk",
+    "size": 1,
+    "name": "h1-L4",
+    "level": 4
+  },
+  {
+    "type": "hot desk",
+    "size": 1,
+    "name": "h2-L4",
+    "level": 4
+  },
+  {
+    "type": "hot desk",
+    "size": 1,
+    "name": "h3-L4",
+    "level": 4
+  },
+  {
+    "type": "hot desk",
+    "size": 2,
+    "name": "h4-L4",
+    "level": 4
+  },
+  {
+    "type": "hot desk",
+    "size": 2,
+    "name": "h5-L4",
+    "level": 4
+  },
+  {
+    "type": "hot desk",
+    "size": 1,
+    "name": "h6-L4",
+    "level": 4
+  },
+  {
+    "type": "hot desk",
+    "size": 2,
+    "name": "h7-L4",
+    "level": 4
+  },
+  {
+    "type": "hot desk",
+    "size": 3,
+    "name": "h8-L4",
+    "level": 4
+  },
+  {
+    "type": "hot desk",
+    "size": 3,
+    "name": "h9-L4",
+    "level": 4
+  },
+  {
+    "type": "hot desk",
+    "size": 3,
+    "name": "h10-L4",
+    "level": 4
+  },
+  {
+    "type": "hot desk",
+    "size": 1,
+    "name": "h11-L4",
+    "level": 4
+  },
+  {
+    "type": "hot desk",
+    "size": 3,
+    "name": "h12-L4",
+    "level": 4
+  },
+  {
+    "type": "staff room",
+    "size": 13,
+    "name": "r401K",
+    "level": 4
+  },
+  {
+    "type": "staff room",
+    "size": 40,
+    "name": "r401J",
+    "level": 4
+  },
+  {
+    "type": "staff room",
+    "size": 23,
+    "name": "r401L",
+    "level": 4
+  },
+  {
+    "type": "staff room",
+    "size": 50,
+    "name": "r401H",
+    "level": 4
+  },
+  {
+    "type": "meeting room",
+    "size": 12,
+    "name": "r401G",
+    "level": 4
+  },
+  {
+    "type": "staff room",
+    "size": 25,
+    "name": "r401A",
+    "level": 4
+  },
+  {
+    "type": "staff room",
+    "size": 24,
+    "name": "r401B",
+    "level": 4
+  },
+  {
+    "type": "meeting room",
+    "size": 39,
+    "name": "r401C",
+    "level": 4
+  },
+  {
+    "type": "meeting room",
+    "size": 42,
+    "name": "r401D",
+    "level": 4
+  },
+  {
+    "type": "meeting room",
+    "size": 27,
+    "name": "r401E",
+    "level": 4
+  },
+  {
+    "type": "staff room",
+    "size": 24,
+    "name": "r401F",
+    "level": 4
+  },
+  {
+    "type": "meeting room",
+    "size": 36,
+    "name": "r405",
+    "level": 4
+  },
+  {
+    "type": "meeting room",
+    "size": 18,
+    "name": "r406",
+    "level": 4
+  },
+  {
+    "type": "meeting room",
+    "size": 31,
+    "name": "r407",
+    "level": 4
+  },
+  {
+    "type": "hot desk",
+    "size": 1,
+    "name": "h1-L5",
+    "level": 5
+  },
+  {
+    "type": "hot desk",
+    "size": 1,
+    "name": "h2-L5",
+    "level": 5
+  },
+  {
+    "type": "hot desk",
+    "size": 1,
+    "name": "h3-L5",
+    "level": 5
+  },
+  {
+    "type": "hot desk",
+    "size": 2,
+    "name": "h4-L5",
+    "level": 5
+  },
+  {
+    "type": "hot desk",
+    "size": 2,
+    "name": "h5-L5",
+    "level": 5
+  },
+  {
+    "type": "hot desk",
+    "size": 3,
+    "name": "h6-L5",
+    "level": 5
+  },
+  {
+    "type": "hot desk",
+    "size": 3,
+    "name": "h7-L5",
+    "level": 5
+  },
+  {
+    "type": "hot desk",
+    "size": 3,
+    "name": "h8-L5",
+    "level": 5
+  },
+  {
+    "type": "hot desk",
+    "size": 3,
+    "name": "h9-L5",
+    "level": 5
+  },
+  {
+    "type": "hot desk",
+    "size": 3,
+    "name": "h10-L5",
+    "level": 5
+  },
+  {
+    "type": "hot desk",
+    "size": 3,
+    "name": "h11-L5",
+    "level": 5
+  },
+  {
+    "type": "hot desk",
+    "size": 2,
+    "name": "h12-L5",
+    "level": 5
+  },
+  {
+    "type": "hot desk",
+    "size": 2,
+    "name": "h13-L5",
+    "level": 5
+  },
+  {
+    "type": "hot desk",
+    "size": 1,
+    "name": "h14-L5",
+    "level": 5
+  },
+  {
+    "type": "staff room",
+    "size": 26,
+    "name": "r501M",
+    "level": 5
+  },
+  {
+    "type": "staff room",
+    "size": 15,
+    "name": "r501L",
+    "level": 5
+  },
+  {
+    "type": "staff room",
+    "size": 48,
+    "name": "r501K",
+    "level": 5
+  },
+  {
+    "type": "staff room",
+    "size": 45,
+    "name": "r501J",
+    "level": 5
+  },
+  {
+    "type": "staff room",
+    "size": 43,
+    "name": "r501C",
+    "level": 5
+  },
+  {
+    "type": "meeting room",
+    "size": 39,
+    "name": "r501D",
+    "level": 5
+  },
+  {
+    "type": "staff room",
+    "size": 22,
+    "name": "r501E",
+    "level": 5
+  },
+  {
+    "type": "staff room",
+    "size": 27,
+    "name": "r501F",
+    "level": 5
+  },
+  {
+    "type": "staff room",
+    "size": 32,
+    "name": "r501G",
+    "level": 5
+  },
+  {
+    "type": "staff room",
+    "size": 18,
+    "name": "r501H",
+    "level": 5
+  },
+  {
+    "type": "staff room",
+    "size": 46,
+    "name": "r501B",
+    "level": 5
+  },
+  {
+    "type": "meeting room",
+    "size": 16,
+    "name": "r501A",
+    "level": 5
+  },
+  {
+    "type": "staff room",
+    "size": 43,
+    "name": "rUCA",
+    "level": 5
+  },
+  {
+    "type": "meeting room",
+    "size": 27,
+    "name": "r502",
+    "level": 5
+  },
+  {
+    "type": "meeting room",
+    "size": 47,
+    "name": "r503",
+    "level": 5
+  },
+  {
+    "type": "meeting room",
+    "size": 41,
+    "name": "r504",
+    "level": 5
+  },
+  {
+    "type": "staff room",
+    "size": 40,
+    "name": "r506",
+    "level": 5
+  },
+  {
+    "type": "staff room",
+    "size": 33,
+    "name": "r507",
+    "level": 5
+  },
+  {
+    "type": "staff room",
+    "size": 42,
+    "name": "r508",
+    "level": 5
+  },
+  {
+    "type": "meeting room",
+    "size": 10,
+    "name": "r510A",
+    "level": 5
+  },
+  {
+    "type": "staff room",
+    "size": 11,
+    "name": "r510B",
+    "level": 5
+  },
+  {
+    "type": "staff room",
+    "size": 24,
+    "name": "r510C",
+    "level": 5
+  },
+  {
+    "type": "staff room",
+    "size": 29,
+    "name": "r510D",
+    "level": 5
+  }
 ]

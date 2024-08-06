@@ -6,6 +6,7 @@ info:
 servers:
   - url: http://localhost:3000
     variables: {}
+
 paths:
   /auth/logout:
     get:
@@ -16,7 +17,15 @@ paths:
       parameters: []
       responses:
         "200":
-          description: ""
+          description: "user logged out!"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+                    example: user logged out!
           headers: {}
       deprecated: false
   /auth/login:
@@ -33,14 +42,63 @@ paths:
             schema:
               allOf:
                 - $ref: "#/components/schemas/loginrequest"
-                - example:
-                    email: m.arsalah003@gmail.com
-            example:
-              email: m.arsalah003@gmail.com
         required: true
       responses:
         "200":
-          description: ""
+          description: Token which contains information about user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserToken"
+          headers: {}
+      deprecated: false
+      security: []
+  /auth/register:
+    post:
+      tags:
+        - Auth
+      summary: register
+      operationId: register
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/registerrequest"
+        required: true
+      responses:
+        "200":
+          description: Token which contains information about user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserToken"
+          headers: {}
+      deprecated: false
+      security: []
+  /auth/verify-email:
+    post:
+      tags:
+        - Auth
+      operationId: verify-email
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/verifyemailrequest"
+        required: true
+      responses:
+        "200":
+          description: Token which contains information about user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserToken"
           headers: {}
       deprecated: false
       security: []
@@ -53,7 +111,13 @@ paths:
       parameters: []
       responses:
         "200":
-          description: ""
+          description: list of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/UserToken"
           headers: {}
       deprecated: false
   /users/{id}:
@@ -72,7 +136,11 @@ paths:
       parameters: []
       responses:
         "200":
-          description: ""
+          description: "Information about specified user"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserToken"
           headers: {}
       deprecated: false
   /users/showMe:
@@ -84,7 +152,42 @@ paths:
       parameters: []
       responses:
         "200":
-          description: ""
+          description: "Information about current user"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserToken"
+          headers: {}
+      deprecated: false
+  /users/updateUser:
+    patch:
+      tags:
+        - User
+      summary: Update current user
+      operationId: UpdateCurrentUser
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+            examples:
+              Changing notification preferences:
+                value:
+                  hasConfirmationEmail: false
+                  hasNotificationEmail: false
+              Changing email and password for user:
+                value:
+                  email: blah@gmail.com
+                  password: blah
+      responses:
+        "200":
+          description: "Information about current user"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserToken"
           headers: {}
       deprecated: false
   /rooms:
@@ -93,10 +196,43 @@ paths:
         - Room
       summary: Get All Rooms
       operationId: GetAllRooms
-      parameters: []
+      parameters:
+        - in: query
+          name: level
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 5
+          description: The floor level of the rooms (must be between 1 and 5)
+          example: 4
+        - in: query
+          name: sort
+          schema:
+            type: string
+          description: String to specify sorting of attributes
+
+          examples:
+            size_then_name:
+              value: size,name
+              summary: sort by size then by name
+            name_then_descending_size:
+              value: name,-size
+              summary: sort by name then sort by descending size
       responses:
         "200":
-          description: ""
+          description: A list of rooms
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 1
+                  rooms:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Room"
           headers: {}
       deprecated: false
       security:
@@ -110,6 +246,10 @@ paths:
       responses:
         "200":
           description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Room"
           headers: {}
       deprecated: false
       security:
@@ -131,6 +271,10 @@ paths:
       responses:
         "200":
           description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Room"
           headers: {}
       deprecated: false
       security:
@@ -161,16 +305,123 @@ paths:
       deprecated: false
       security:
         - bearer: []
+  /bookings/usageReport:
+    post:
+      tags:
+        - Booking
+      summary: Get Usage Report
+      operationId: GetUsageReport
+      parameters:
+        - name: start
+          in: query
+          description: "start date"
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: 2021-08-25T11:34:21.373Z
+        - name: end
+          in: query
+          description: "end date"
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: 2029-08-25T12:34:21.373Z
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  notCheckedIn:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Booking"
+                  mostCommonlyBookedRooms:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        _id:
+                          type: string
+                          example: 66891960d50bb1fbe260afd8
+                        room:
+                          $ref: "#/components/schemas/Room"
+                        count:
+                          type: integer
+                          example: 4
+                  mostCommonUsers:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        _id:
+                          type: string
+                          example: 66891960d50bb1fbe260afd8
+                        number_of_bookings:
+                          type: integer
+                          example: 3
+                        doc:
+                          $ref: "#/components/schemas/User"
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
   /bookings:
     get:
       tags:
         - Booking
       summary: Get All Bookings
       operationId: GetAllBookings
-      parameters: []
+      parameters:
+        - name: start
+          in: query
+          description: "start date"
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: 2021-08-25T11:34:21.373Z
+        - name: end
+          in: query
+          description: "end date"
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: 2029-08-25T12:34:21.373Z
+        - in: query
+          name: sort
+          schema:
+            type: string
+          description: String to specify sorting of attributes
+
+          examples:
+            duration:
+              value: duration
+              summary: sort by duration
       responses:
         "200":
           description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 1
+                  bookings:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Booking"
           headers: {}
       deprecated: false
       security:
@@ -186,22 +437,36 @@ paths:
         content:
           application/json:
             schema:
-              allOf:
-                - $ref: "#/components/schemas/CreateBookingRequest"
-                - example:
-                    room: 66783deb77dfc185f1e9bd7e
-                    start: 2024-08-24T21:40:00.373Z
-                    duration: "1"
-                    description: a meeting of minds
-            example:
-              room: 66783deb77dfc185f1e9bd7e
-              start: 2024-08-24T21:40:00.373Z
-              duration: "1"
-              description: a meeting of minds
+              $ref: "#/components/schemas/CreateBookingRequest"
+            examples:
+              Making a normal booking:
+                value:
+                  room: 66783deb77dfc185f1e9bd7e
+                  start: 2024-08-24T21:40:00.373Z
+                  duration: 2
+                  description: a meeting of minds
+              Admin making booking on behalf of staff:
+                value:
+                  room: 66783deb77dfc185f1e9bd7e
+                  start: 2024-08-24T21:40:00.373Z
+                  duration: 2
+                  description: a meeting of minds
+                  user: 667be8938e6a2e7ca5124f92
+              Non-CSE staff making a booking request:
+                value:
+                  room: 66783deb77dfc185f1e9bd7e
+                  start: 2024-08-24T21:40:00.373Z
+                  duration: 2
+                  description: a meeting of minds
+                  isRequest: true
         required: true
       responses:
         "200":
           description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Booking"
           headers: {}
       deprecated: false
       security:
@@ -223,6 +488,10 @@ paths:
       responses:
         "200":
           description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Booking"
           headers: {}
       deprecated: false
       security:
@@ -240,16 +509,131 @@ paths:
       deprecated: false
       security:
         - bearer: []
+  /bookings/{id}/overrideBooking:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The booking ID
+    patch:
+      tags:
+        - Booking
+      summary: Override a Booking
+      operationId: OverrideBooking
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  updatedBooking:
+                    $ref: "#/components/schemas/Booking"
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /bookings/{id}/checkIn:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The booking ID
+    patch:
+      tags:
+        - Booking
+      summary: Check into a Booking
+      operationId: CheckInBooking
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  updatedBooking:
+                    $ref: "#/components/schemas/Booking"
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /bookings/{id}/approveRequest:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The booking ID
+    patch:
+      tags:
+        - Booking
+      summary: Approve booking request
+      operationId: ApproveBookingRequest
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+                    example: booking 668a4468e093271babb25fb6 successfully approved
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /bookings/{id}/denyRequest:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The booking ID
+    patch:
+      tags:
+        - Booking
+      summary: Deny booking request
+      operationId: DenyBookingRequest
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+                    example: booking 668a4468e093271babb25fb6 successfully denied
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
   /bookings/showAllMyBookings:
     get:
       tags:
         - Booking
       summary: get current users bookings
       operationId: getcurrentusersbookings
+      description: "Get all the current users booking between a start and end time"
       parameters:
         - name: start
           in: query
-          description: ""
+          description: "start date"
           required: true
           style: form
           explode: true
@@ -258,7 +642,7 @@ paths:
             example: 2021-08-25T11:34:21.373Z
         - name: end
           in: query
-          description: ""
+          description: "end date"
           required: true
           style: form
           explode: true
@@ -268,50 +652,237 @@ paths:
       responses:
         "200":
           description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 1
+                  bookings:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Booking"
           headers: {}
       deprecated: false
       security:
         - bearer: []
-  /bookings/sendEmail:
+  /bookings/sendFeedback:
     post:
       tags:
         - Booking
-      summary: send email
-      operationId: sendemail
+      summary: Send feedback to an admin
+      operationId: sendFeedback
       parameters: []
       requestBody:
         description: ""
         content:
           application/json:
             schema:
-              allOf:
-                - $ref: "#/components/schemas/sendemailrequest"
-                - example:
-                    booking: 6679565641fe80128fcf60bd
-                    isConfirmation: "true"
-            example:
-              booking: 6679565641fe80128fcf60bd
-              isConfirmation: "true"
+              type: object
+              properties:
+                feedback:
+                  type: string
+                  example: Wow this app is fantastic!
         required: true
       responses:
         "200":
           description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+                    example: feedback sent to admin successfully!
           headers: {}
       deprecated: false
       security:
         - bearer: []
 components:
   schemas:
+    User:
+      type: object
+      properties:
+        type:
+          type: string
+          description: The type of the user.
+          example: admin
+        zid:
+          type: string
+          description: The zid of the user.
+          example: z54322
+        email:
+          type: string
+          description: The email of the user.
+          example: tjfxr@unsw.edu.au
+        name:
+          type: string
+          description: The name of the user.
+          example: tjfxr
+        _id:
+          type: string
+          description: The user ID of the user.
+          example: 667be8938e6a2e7ca5124f92
+        faculty:
+          type: string
+          description: the faculty which the user is a part of.
+          example: ENG
+        school:
+          type: string
+          description: The school the user is a part of .
+          example: CSE
+        title:
+          type: string
+          description: The title of the user
+          example: Mr
+        role:
+          type: string
+          description: The role of the uesr
+          example: Professional
+        hasConfirmationEmail:
+          type: boolean
+          description: If the user gets confirmation emails for a booking (i.e. if true, then every booking that the user makes triggers a confirmation email to their email address)
+        hasNotificationEmail:
+          type: boolean
+          description: If the user gets notification emails 15 minutes before a booking starts
+        verificationToken:
+          type: string
+          description: token used for verification, if user hasent verified account, then its set to null
+        isVerified:
+          type: boolean
+          description: if user has a verified account
+        password:
+          type: string
+    Booking:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: The user ID.
+          example: 667be8938e6a2e7ca5124ff5
+        start:
+          type: string
+          description: The start time of the booking.
+          example: 2024-06-27T07:00:00.000Z
+        end:
+          type: string
+          description: The end time of the booking.
+          example: 2024-06-27T08:00:00.000Z
+        duration:
+          type: integer
+          description: the duration of the booking
+          example: 4
+        isOverrided:
+          type: boolean
+          description: has the booking been overrided/cancelled by an admin
+          example: false
+        isRequest:
+          type: boolean
+          description: is the booking a request made by non-CSE staff
+          example: false
+        isCheckedIn:
+          type: boolean
+          description: has the booking been checked in
+          example: true
+        isApproved:
+          type: boolean
+          description: if the booking has been approved (only applies if booking is a request, i.e. isRequest is true)
+          example: null
+        user:
+          $ref: "#/components/schemas/UserToken"
+        room:
+          $ref: "#/components/schemas/Room"
+    Room:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: The user ID.
+          example: 667be8938e6a2e7ca5124ff5
+        name:
+          type: string
+          description: The name of the room.
+          example: AO-CCU
+        size:
+          type: integer
+          description: The size of the room.
+          example: 49
+        type:
+          type: string
+          description: The type of the room.
+          example: staff room
+        level:
+          type: integer
+          description: The level of the room
+          example: 3
+    UserToken:
+      type: object
+      properties:
+        type:
+          type: string
+          description: The user ID.
+          example: admin
+        zid:
+          type: string
+          description: The zid of the user.
+          example: z54322
+        email:
+          type: string
+          description: The email of the user.
+          example: tjfxr@unsw.edu.au
+        name:
+          type: string
+          description: The name of the user.
+          example: tjfxr
+        userId:
+          type: string
+          description: The user ID of the user.
+          example: 667be8938e6a2e7ca5124f92
     loginrequest:
       title: loginrequest
       required:
         - email
+        - password
       type: object
       properties:
         email:
           type: string
+        password:
+          type: string
       example:
-        email: m.arsalah003@gmail.com
+        email: tjfxr@unsw.edu.au
+        password: blah123
+    registerrequest:
+      title: registerrequest
+      required:
+        - email
+        - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: tjfxr@unsw.edu.au
+        password: blah123
+    verifyemailrequest:
+      title: verifyemailrequest
+      required:
+        - email
+        - verificationToken
+      type: object
+      properties:
+        email:
+          type: string
+        verificationToken:
+          type: string
+      example:
+        email: tjfxr@unsw.edu.au
+        verificationToken: RMd4I87MuROLtKB2zjPO2ggHfyhHuzLhJL7t8vvi
     sendemailrequest:
       title: sendemailrequest
       required:
@@ -332,11 +903,11 @@ components:
         - room
         - start
         - duration
-        - description
       type: object
       properties:
         room:
           type: string
+          description: dsads
         start:
           type: string
         duration:
@@ -348,6 +919,7 @@ components:
         start: 2024-08-24T21:40:00.373Z
         duration: "1"
         description: a meeting of minds
+
   securitySchemes:
     bearer:
       type: http
@@ -355,6 +927,10 @@ components:
 security: []
 tags:
   - name: Auth
+    description: Managing user authentication and authorization
   - name: User
+    description: Managing user profiles
   - name: Room
+    description: Creating and managing rooms
   - name: Booking
+    description: Creating and managing bookings

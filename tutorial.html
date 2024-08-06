@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- <header>
+        <h1>Dashboard (HDR Student)</h1>
+    </header> -->
+    <section id="setup">
+        <h2>Setup</h2>
+        <p>See manual in the report for docker commands and .env file setup.</p>
+    </section>
+    <section id="login-register">
+        <h2>Login / Register</h2>
+
+        <p>Since most emails are fake, you can <strong>choose any of the given emails below and login specifying no password</strong>.</p>
+
+
+        <ul>
+            HDR Student: z34966@ad.student.unsw.edu.au
+        </ul>
+        <ul>
+            CSE Staff: aooif@unsw.edu.au
+        </ul>
+        <ul>
+            Non CSE Staff: ddbgfyb@unsw.edu.au
+        </ul>
+        <ul>
+            Admin: tjfxr@unsw.edu.au
+        </ul>
+    </section>
+    <section id="timetable-view">
+        <h2>The Dashboard (HDR Student)</h2>
+        <hr />
+        <h3>Timetable View</h3>
+        <hr />
+        <img src="screenshots/timetableStudent.PNG" alt="dashboard view for student">
+
+        <p>Above is the timetable view. There are three functionailites in the sub nav:</p>
+        <ul><li>
+            The > will allow you to see bookings for the next date
+        </li><li>
+            Level Two is a select dropdown to choose a different floor.
+        </li>
+        <li>
+            Map View will switch the dashboard from the timetable view to the map view (described below)
+        </li>
+        <p>The > on the right side of the page will allow you to see bookings for more rooms.</p>
+        <p>The funnel icon on the left side of the page will allow you to filter for different times and properties of the room.</p>
+    
+        </ul>
+    </section>
+    <section id="map-view">
+        <h3>Map View</h3>
+        <hr />
+        <img src="screenshots/MapViewStudent.PNG" alt="map view for student">
+        <p>The green buttons are rooms that you have permissions to book. This will depend on your role at CSE.</p>
+        <p>You can switch back to the timetable view in the subnav, as well as view more levels / choose another date to book.</p>
+        <p>Clicking on a button will highlight that room in the timetable view.</p>
+    </section>
+    <section id="booking">
+        <h3>Making a booking</h3>
+        <hr />
+        <p>To make a booking, click on an available cell to make a booking, and fill in the details in the modal that pops up.</p>
+        <p>You cannot make a booking that starts before the current hour!</p>
+        <img src="screenshots/ModalStudent.PNG">
+    </section>
+    <section id="deleting-booking">
+        <h3>Deleting a booking</h3>
+        <hr />
+        <p> You can now view the booking on the timetable.</p>
+        <p>Click on the trash icon, when viewing your booking, then 'Delete' again to confirm your deletion.</p>
+        <p>This can also be done in the MyBookings tab.</p>
+        <img src="screenshots/delete1.PNG">
+        <img src="screenshots/Delete2.PNG">
+    </section>
+    <section id="my-bookings">
+        <h2>My Bookings</h2>
+        <hr />
+        <!-- <img src="screenshots/MyBookingsStudent1.PNG" alt="Checking In Image"> -->
+        <h3>Checking In</h3>
+        <hr />
+        <img src="screenshots/MyBookingsStudent2.PNG">
+        <p> To Check into a booking, click on the corresponding accordian and then click the green 'Check In' button.</p>
+        <p> <strong>Note:</strong> You can only check into a booking within 15 minutes of the start time.</p>
+        <img src="screenshots/MyBookingsStudent3.PNG">
+        <p>After Checking in, the accordian will be green, and you will be checked in!</p>
+
+    </section>
+    <section id="exporting-calendar">
+        <h3>Exporting to calendar</h3>
+        <hr />
+        <p>Clicking Export All ICS File, will create a file in your browsers download</p>
+        <p>You can import this file to any standard calender app (built in Windows, Apple, Google Calender, etc.) to add the events to your calendar.</p>
+        <img src="screenshots/Download.png">
+    </section>
+    <section id="NonCseStaff">
+        <h2>Non CSE Staff</h2>
+        <hr />
+        <h3>Making Requests</h3>
+        <p>To make a request as a Non-CSE staff, it is the same process as making a booking as a different type of user. Note that 
+            you can only view <strong>meeting rooms</strong> if you are non-cse staff.
+        </p>
+        <hr />
+        <h3>Viewing Requests</h3>
+        <p>Head to the MyBookings tab to see status on your request:
+            <ul>
+                <li>Red = Denied</li>
+                <li>Yellow = Pending</li>
+                <li>Appears as Booking = Accepted</li>
+            </ul>
+        </p>
+        <img src="screenshots/RequestPending.PNG">
+    </section>
+    <hr />
+    <section id="admin">
+        <h2>Admin Functionalities</h2>
+        <hr />
+        <h3>Accepting / Denying Requests</h3>
+        <hr />
+        <p> To Review Request, click on the 'Requests' Tab.</p>
+        <p> Click on the corresponding accoridian, and click 'Accept' or 'Deny'</p>
+        <img src="screenshots/AdminRequest.PNG">
+        <h3>Viewing / Generating Reports</h3>
+        <hr />
+        <p> To generate usage reports, head to the 'Reports' tab, choose 2 dates and click 'Generate Report'</p>
+        <img src="screenshots/AdminRoomsReport.PNG">
+        <img src="screenshots/AdminUsersReport.PNG">
+        <h3> Booking on behalf of staff </h3>
+        <p> When making a booking as an admin, you can optionally select the booking to be on behalf of another person.</p>
+        <img src="screenshots/AdminBooking.png">
+        <hr />
+        <h3> Deleting Other's bookings</h3>
+        <hr />
+        <p> As an admin, you can click any booking on the timetable, and delete the booking via the Trash can Icon.</p>
+    </section>
+    <section>
+        <h2>Invalid Bookings</h2>
+        <p> After attempting to book in an invalid way, an error message will appear on the bottom left of screen, and no 
+            booking will be made.
+        </p>
+        <p> The following cases are invalid:</p>
+        <ul>
+            <li>Booking two rooms at the same time (hdr student)</li>
+            <li>Making a booking that overlaps with another booking</li>
+            <li>Booking for longer than 8 hours</li>
+        </ul>
+        <img src="screenshots/errormsg1.PNG">
+        <br />
+        <img src="screenshots/errormsg2.PNG">
+
+    </section>
+</body>
+</html>

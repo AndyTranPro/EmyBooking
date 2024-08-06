@@ -1,3 +1,11 @@
+/**
+ * Register Component
+ * 
+ * Provides a form for users to register a new account. Users must provide an email address and
+ * matching passwords to complete registration. Displays success or error messages based on 
+ * registration outcome.
+ */
+
 import { useGlobalContext } from "../utils/context";
 import { useNavigate, Link } from "react-router-dom";
 import { request } from "../utils/axios";
@@ -13,10 +21,8 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { AxiosError } from "axios";
 import { FormEvent } from "react";
-// blah
-// fixing stuff rn
 const Register = () => {
-  const { displayError, displaySuccess, handleToken } = useGlobalContext();
+  const { displayError, displaySuccess} = useGlobalContext();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -30,19 +36,14 @@ const Register = () => {
       return displayError("Passwords dont match");
     }
     try {
-      console.log(data.get("name"));
-      console.log(data.get("email"));
-      console.log(data.get("password"));
       const {
-        data: { user },
+        data: { },
       } = await request.post("/auth/register", {
-        name: data.get("name"),
         email: data.get("email"),
         password: data.get("password"),
       });
-      handleToken(user);
-      displaySuccess("Registered Successfully");
-      navigate("/dashboard");
+      displaySuccess("Registered Successfully! An email will be sent to you with verification instructions");
+      navigate("/login");
     } catch (e) {
       if (e) {
         if (e instanceof AxiosError) {
@@ -80,18 +81,6 @@ const Register = () => {
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
-                  autoComplete="given-name"
-                  name="name"
-                  required
-                  fullWidth
-                  id="name"
-                  label="name"
-                  autoFocus
-                />
-              </Grid>
-
-              <Grid item xs={12}>
-                <TextField
                   required
                   fullWidth
                   id="email"
@@ -105,7 +94,7 @@ const Register = () => {
                   required
                   fullWidth
                   name="password"
-                  label="Password"
+                  label="Your Password"
                   type="password"
                   id="password"
                   autoComplete="new-password"
